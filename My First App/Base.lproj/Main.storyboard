@@ -46,6 +46,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="touchInEdit:" destination="BYZ-38-t0r" eventType="touchDown" id="Cug-RY-5ap"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ow-wi-GsL">
                                 <frame key="frameInset" minX="16" minY="184" width="343" height="21"/>
@@ -62,10 +65,22 @@
                                     <action selector="helloBTN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MiU-0y-JZB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnG-MT-aBw">
+                                <frame key="frameInset" minY="213" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94602158994823382" green="0.97813465122666521" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Switch Displays">
+                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="GQF-2c-pdY" kind="show" id="sOi-yb-Wqg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="btn" destination="mnG-MT-aBw" id="nak-WF-Ldm"/>
                         <outlet property="myLabel" destination="7IY-9C-6iE" id="P9I-ne-CJX"/>
                         <outlet property="nameLabel" destination="2ow-wi-GsL" id="rsJ-lK-a41"/>
                         <outlet property="nameTxtBox" destination="7El-UT-r2Y" id="vau-3A-hrx"/>
@@ -75,6 +90,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+        <!--View Two-->
+        <scene sceneID="0E2-TV-eNh">
+            <objects>
+                <viewController id="GQF-2c-pdY" customClass="ViewTwo" customModule="My_First_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MJ3-OR-wgt"/>
+                        <viewControllerLayoutGuide type="bottom" id="Td6-vB-tUT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hgI-zV-UmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zKc-XJ-y1P">
+                                <frame key="frameInset" minX="112" minY="28" width="150" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="ii1-6e-Oi2">
+                                <frame key="frameInset" minX="140" minY="57" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="stepper:" destination="GQF-2c-pdY" eventType="valueChanged" id="GaM-4O-AOz"/>
+                                </connections>
+                            </stepper>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="progBar" destination="zKc-XJ-y1P" id="Zk3-SG-QpW"/>
+                        <outlet property="stepperVal" destination="ii1-6e-Oi2" id="0pU-v6-oI9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PcB-wf-xQY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1401" y="137"/>
         </scene>
     </scenes>
 </document>

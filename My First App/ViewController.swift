@@ -20,10 +20,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		nameTxtBox.delegate = self
     }
 	@IBAction func helloBTN(_ sender: AnyObject) {
-		let name = nameTxtBox.text!
-		nameLabel.text = "Hello, \(name)!"
-		nameTxtBox.resignFirstResponder()
-		//oposite is becomeFirstResponder()
+		enterEditName()
+	}
+	@IBAction func touchInEdit(_ sender: AnyObject) {
+		nameTxtBox.becomeFirstResponder()
 	}
 	//other way to say done editing text -> shuts KB, when touch anywhere else
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -31,18 +31,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	}
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		nameTxtBox.resignFirstResponder()
+		enterEditName()
 		return false;
 	}
 	
 	@IBAction func didTouchButton(_ sender: AnyObject) {
 		myLabel.text = "Changed with Code!"
+		
 	}
+	@IBOutlet weak var btn: UIButton!
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+	func enterEditName()
+	{
+		let name = nameTxtBox.text!
+		nameLabel.text = "Hello, \(name)!"
+		nameTxtBox.resignFirstResponder()
+		//oposite is becomeFirstResponder()
+	}
 
 }
 
